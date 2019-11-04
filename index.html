@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <h2>Requirements tree</h2>
+  <p>Every requirement is classified by ccategories</p>
+  <p>Click on the box(es) to open or close the tree branches.</p>
+
+  <ul id="myUL">
+    <li><span class="box">Categories</span>
+      <ul class="nested">
+        <li><a href = "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6" target = "blank_">Test link</a></li>
+        <ul class="nested">
+          <li><a href = "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6">Test</a></li>
+        </ul>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    var toggler = document.getElementsByClassName("box");
+    var i;
+
+    for (i = 0; i < toggler.length; i++) {
+      toggler[i].addEventListener("click", function () {
+        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.classList.toggle("check-box");
+      });
+    }
+  </script>
+
+</body>
+
+</html>
