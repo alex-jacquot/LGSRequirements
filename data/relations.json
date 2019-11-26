@@ -1,0 +1,27 @@
+{
+    "component": [
+        {
+            "name": "humanComponent",
+            "children": [
+                {
+                    "id": 1,
+                    "url": "description.txt#9"
+                },
+                {
+                    "id": 2,
+                    "url": "description.txt#11"
+                }
+            ]
+        },
+        {
+            "name": "Other Component",
+            "children": [
+                {
+                    "id": 1,
+                    "url": "description.txt#9"
+                }
+            ]
+        }
+    ],
+    "behavior": []
+}  

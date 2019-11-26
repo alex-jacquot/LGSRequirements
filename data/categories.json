@@ -1,0 +1,60 @@
+{
+    "behavior": [],
+    "component": [
+        {
+            "name": "Component",
+            "children": [
+                {
+                    "name": "Actor",
+                    "id": 1,
+                    "url": "electro-valves.txt#L6",
+                    "relations": {
+                        "sameproperty":[
+                            "architecture.txt#L30",
+                            "architecture.txt#L31",
+                            "architecture.txt#L32",
+                            "architecture.txt#L33"
+                        ],
+                        "specifications":[
+                            "architecture.txt#L11"
+                        ]    
+                    }
+                        
+                },
+                {
+                    "name": "Normal Constraint",
+                    "id": 2,
+                    "url": "description.txt#11"
+                }
+            ]
+        },
+        {
+            "name": "Constraint",
+            "children": [
+                {
+                    "name": "Actor",
+                    "id": 1,
+                    "url": "electro-valves.txt#L6",
+                    "relations": {
+                        "sameproperty":[
+                            "architecture.txt#L30",
+                            "architecture.txt#L31",
+                            "architecture.txt#L32",
+                            "architecture.txt#L33"
+                        ],
+                        "specifications":[
+                            "architecture.txt#L11"
+                        ]    
+                    }
+                        
+                },
+                {
+                    "name": "Null",
+                    "id": 2,
+                    "url": "description.txt#11"
+                }
+            ]
+        }
+    ]
+    
+}

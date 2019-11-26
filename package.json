@@ -1,0 +1,26 @@
+{
+  "name": "lgsrequirements",
+  "version": "1.0.0",
+  "description": "Describes the relationships between the different requirements from the LGS project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-jacquot/LGSRequirements.git"
+  },
+  "keywords": [],
+  "author": "jacquot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alex-jacquot/LGSRequirements/issues"
+  },
+  "homepage": "https://github.com/alex-jacquot/LGSRequirements#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "puppeteer": "^2.0.0"
+  },
+  "devDependencies": {}
+}

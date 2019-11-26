@@ -2,38 +2,186 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
+  <title>LGS Requirements</title>
+  <script src="js/script.js" defer></script>
+  <script type="module">
+    import { require } from "./js/require.js";</script>
+  </script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-  <h2>Requirements tree</h2>
-  <p>Every requirement is classified by ccategories</p>
-  <p>Click on the box(es) to open or close the tree branches.</p>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h2>Requirements tree</h2>
+      <p>Every requirement is classified by categories</p>
+      <p>Click on the box(es) to open or close the tree branches.</p>
+    </div>
+  </div>
 
-  <ul id="myUL">
+  <!--https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6-->
+
+  <!--
+    On doit avoir la copie du texte dynamique depuis le site
+    On doit avoir le lien pour chaque exigence esur le texte copié, ET la liste des relations avec les autres exigences
+
+    JSON:
+
+    Categories
+      Constraint (type)
+        SubCategory 1 
+          Definition
+          Lien description
+        SubCategory 2
+  -->
+  <ul id="tree myUL">
     <li><span class="box">Categories</span>
       <ul class="nested">
-        <li><a href = "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6" target = "blank_">Test link</a></li>
-        <ul class="nested">
-          <li><a href = "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6">Test</a></li>
-        </ul>
+        <li><span class="box">Behavior</span>
+          <ul class="nested">
+            <li><span class="box"><a>description.txt#L9</a></span>
+              <br>After taking off, the retraction sequence to be performed is: open the doors, retract the landing
+              gears and close the doors.
+            </li>
+          </ul>
+        </li>
+        <li><span class="box">Component</span>
+          <ul class="nested">
+            <li><span class="box">Actor</span>
+              <ul class="nested">
+
+                <li><span class="box"><a>electro-valves.txt#L6</a></span>
+                  <br>The landing system is composed of 3 landing sets: front, left and right.
+                  <br>
+                <li><span class="box">Relations</span>
+                  <ul class="nested">
+                    <li><span class="box">Same property</span>
+                      <ul class="nested">
+                        <li><span class="box"><a>architecture.txt#L30</a></span>
+                          <br>Front / right / left gear is locked / not locked in the extended position.
+                        </li>
+                        <li><span class="box"><a>architecture.txt#L31</a></span>
+                          <br>Front / right / left gear is locked / not locked in the retracted position.
+                        </li>
+                      </ul>
+                    </li>
+                    <li><span class="box">Property specification</span>
+                      <ul class="nested">
+                        <li><span class="box"><a>architecture.txt#L11</a></span>
+                          <br>Each of the of three landing sets (front, left and right) has got: (i) a landing gear uplock box, and (ii) a door with two latching boxes in the closed position.
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="box">Constraint</span>
+      <ul class="nested">
+        <li><span class="box">Assumption</span>
+          <ul class="nested">
+            <li><span class="box"><a>electro-valves.txt#L6</a></span>
+              <br>Note that the electrical order must be sustained to true (i..e, at the high voltage) to maintain the electro-valve in the closed position. 
+            </li>
+          </ul>
+        </li>
+        <li><span class="box">Obligation</span>
+          <ul class="nested">
+            <li><span class="box"><a>description.txt#L2</a></span>
+              <br>in order to allow the pilot to activate the emergency command, the system has to elaborate health parameters for all the equipments involved in the landing gear function.
+            </li>
+          </ul>
+        </li>
+        <li><span class="box">Business rule</span>
+          <ul class="nested">
+            <li><span class="box"><a
+                  href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L1">analogical.txt#L12</a></span>
+              <br>We consider only permanent failures: the switch remains blocked in the closed or in the open position. 
+            </li>
+          </ul>
+        </li>
+        <li><span class="box">Engineering decision</span>
+          <ul class="nested">
+            <li><span class="box"><a
+                  href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6">electro-valves.txt#L13</a></span>
+              <br>We consider only permanent failures: the electro-valve remains blocked in the closed or the open state
+            </li>
+          </ul>
+        </li>
+        <li><span class="box">Physical rule</span>
+          <ul class="nested">
+            <li><span class="box"><a
+                  href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6">timing.txt#L5</a></span>
+              <br>Because of inertia of the oil pressure, two contrary orders (closure / opening doors, extension / retraction gears) must be separated by at least 100ms.
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="box">Goal</span>
+      <ul class="nested">
+        <li><span class="box"><a
+              href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6">electro-valves.txt#L13</a></span>
+          <br>We consider only permanent failures: the electro-valve remains blocked in the closed or the open state
+        </li>
+      </ul>
+    </li>
+    <li><span class="box">Limit</span>
+      <ul class="nested">
+        <li><span class="box"><a
+              href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6">timing.txt#L5</a></span>
+          <br>After taking off, the retraction sequence to be performed is: open the doors, retract the landing
+          gears and close the doors.
+        </li>
+      </ul>
+    </li>
+    <li><span class="box">Meta-requirement</span>
+      <ul class="nested">
+        <li><span class="box"><a
+              href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L12">health.txt#L1</a></span>
+          <br>After taking off, the retraction sequence to be performed is: open the doors, retract the landing
+          gears and close the doors.
+        </li>
+      </ul>
+    </li>
+    <li><span class="box">Product</span>
+      <ul class="nested">
+        <li><span class="box"><a
+              href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6">scenario.txt#L9</a></span>
+          <br>After taking off, the retraction sequence to be performed is: open the doors, retract the landing
+          gears and close the doors.
+        </li>
+      </ul>
+    </li>
+    <li><span class="box">Role</span>
+      <ul class="nested">
+        <li><span class="box"><a
+              href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6">description.txt:9</a></span>
+          <br>After taking off, the retraction sequence to be performed is: open the doors, retract the landing
+          gears and close the doors.
+        </li>
       </ul>
     </li>
   </ul>
+  </li>
+  </ul>
 
-  <script>
-    var toggler = document.getElementsByClassName("box");
-    var i;
-
-    for (i = 0; i < toggler.length; i++) {
-      toggler[i].addEventListener("click", function () {
-        this.parentElement.querySelector(".nested").classList.toggle("active");
-        this.classList.toggle("check-box");
-      });
-    }
-  </script>
 
 </body>
 
