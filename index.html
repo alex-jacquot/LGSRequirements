@@ -24,13 +24,14 @@
 
 <body>
 
-  <div class="jumbotron jumbotron-fluid">
+  <div class="jumbotron">
     <div class="container">
       <h2>Requirements tree</h2>
       <p>Every requirement is classified by categories</p>
       <p>Click on the box(es) to open or close the tree branches.</p>
     </div>
   </div>
+
 
   <!--https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6-->
 
@@ -137,8 +138,8 @@
     <li><span class="box">Goal</span>
       <ul class="nested">
         <li><span class="box"><a
-              href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6">electro-valves.txt#L13</a></span>
-          <br>We consider only permanent failures: the electro-valve remains blocked in the closed or the open state
+              href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/health.txt#L1">health.txt#L1</a></span>
+          <br>The second objective of the control software is to detect anomalies and to inform the pilot
         </li>
       </ul>
     </li>
@@ -154,18 +155,16 @@
     <li><span class="box">Meta-requirement</span>
       <ul class="nested">
         <li><span class="box"><a
-              href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L12">health.txt#L1</a></span>
-          <br>After taking off, the retraction sequence to be performed is: open the doors, retract the landing
-          gears and close the doors.
+              href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L14">analogical.txt#14</a></span>
+          <br>The global behavior of the switch, including failures, is specified by the model of Figure 7
         </li>
       </ul>
     </li>
     <li><span class="box">Product</span>
       <ul class="nested">
         <li><span class="box"><a
-              href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6">scenario.txt#L9</a></span>
-          <br>After taking off, the retraction sequence to be performed is: open the doors, retract the landing
-          gears and close the doors.
+              href="https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L14">scenario.txt#L9</a></span>
+              <br>The landing system has the following actuating cylinders: 
         </li>
       </ul>
     </li>
@@ -182,6 +181,13 @@
   </li>
   </ul>
 
+  <button class = "col-md-2" onclick="exportJSON()">
+    Export to JSON
+  </button>
+
+  <button class = "col-md-2"onclick="importJSON()">
+    Import to JSON
+  </button>
 
 </body>
 

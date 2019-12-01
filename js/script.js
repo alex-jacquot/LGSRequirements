@@ -1,8 +1,11 @@
+//require ("express");
+
 initTreeEvents();
 //scrapeTest();
 updateURLS();
 
-/*function scrapeTest() {
+
+function scrapeTest() {
   //const axios = require('axios');
 
   const url = 'https://api.myjson.com/bins/6tbl2';
@@ -13,19 +16,30 @@ updateURLS();
       console.log(html);
     })
     .catch(console.error);
-}*/
+}
 
 function updateURLS() {
 
   $(".box a").each(function (index) {
+    /* .each(){getURL()} */
     url = "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/" + $(this).text()
     $(this).attr("href", url);
     $(this).attr("target", "_blank");
   })
 }
 
+function generateTree(){
+  let json = getFile("../data/categories.json");
+  for (var i = 0; i < arr.length; i++){
+    var obj = arr[i];
+    for (var categorie in obj){
+        $("li").addNode("<span class=\"box\">"+ categorie.name +"</span><ul class=\"nested\">  <li><span class=\"box\"><a href=\"https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/" + categorie.url + ">timing.txt#L5</a></span><br> "+categorie.getURL()+ "</li> </ul>");
+    }}
+}
+
+
 function initTreeEvents() {
-  var toggler = document.getElementsByClassName("box");
+  var toggler = $(".box");
   var i;
 
   for (i = 0; i < toggler.length; i++) {
@@ -34,8 +48,24 @@ function initTreeEvents() {
       this.classList.toggle("check-box");
     });
   }
-
 }
+
+function importJSON(){
+  if (typeof server == 'undefined') {
+    alert("Server not launched properly")
+  }
+  getFile("../data/categories.json");
+}
+
+function exportJSON(){
+  if (typeof server == 'undefined') {
+    alert("Server not launched properly")
+  }
+  downloadJSON();
+}
+
+
+
 
 /*$.get(
   {
